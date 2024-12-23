@@ -36,7 +36,7 @@ db.on('error', (err) => console.log('Database connection error:', err))
 db.once('open', () => console.log('Connected to the database'))
 
 // Serve static files from 'public' directory
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '..', 'public')))
 
 // Use Swagger UI for /api-docs route
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))

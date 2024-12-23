@@ -1,0 +1,23 @@
+# Node modules
+/node_modules/
+
+# Logs
+*.log
+logs/
+
+# Build directories
+/dist/
+/build/
+
+# Environment files
+.env
+
+# System files
+.DS_Store
+
+# Optional: IDE files (e.g., VSCode)
+.vscode/
+.idea/
+
+# Package-lock files (if you don't want to commit them)
+package-lock.json

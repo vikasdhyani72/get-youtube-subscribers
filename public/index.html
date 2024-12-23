@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get YouTube Subscribers</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        color: #333;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 90%;
+        max-width: 500px;
+        overflow: hidden;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #333;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background: #555;
+        color: #fff;
+      }
+
+      input[type='text'] {
+        padding: 10px;
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .icon-links img {
+        width: 30px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      .flex-container {
+        margin: 15px 0;
+      }
+
+      .clipboard-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .clipboard-container input {
+        text-align: center;
+        width: 100%;
+        border: none;
+        background: none;
+        font-size: 16px;
+        outline: none;
+      }
+
+      /* Ensure Demo ID input is fully visible */
+      #demoId {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Get YouTube Subscribers</h1>
+
+      <button id="allSubscribersButton">All Subscribers</button>
+      <button id="subscriberNamesButton">Subscriber Names</button>
+
+      <div class="flex-container">
+        <input
+          type="text"
+          id="subscriberIdInput"
+          placeholder="Enter Subscriber ID"
+        />
+        <button id="subscriberByIdButton">Get Subscriber by ID</button>
+      </div>
+
+      <div class="clipboard-container">
+        <span><b>Demo ID:</b></span>
+        <input
+          type="text"
+          id="demoId"
+          value="676926db06ff3c1ca4af021d"
+          readonly
+        />
+        <button id="copyDemoIdButton">Copy</button>
+      </div>
+
+      <div class="icon-links">
+        <a href="mailto:yourmail@example.com" target="_blank">
+          <img src="./Images/email.png" alt="Mail Icon" />
+        </a>
+        <a href="https://github.com/vikasdhyani72" target="_blank">
+          <img src="./Images/Github.png" alt="GitHub Logo" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/vikas-dhyani-433337246/"
+          target="_blank"
+        >
+          <img src="./Images/Linkedin.png" alt="LinkedIn Logo" />
+        </a>
+      </div>
+
+      <button id="apiDocsButton">API Docs</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const baseUrl = 'http://localhost:3000'
+
+        // All Subscribers Button
+        document
+          .getElementById('allSubscribersButton')
+          .addEventListener('click', () => {
+            window.location.href = `${baseUrl}/subscribers`
+          })
+
+        // Subscriber Names Button
+        document
+          .getElementById('subscriberNamesButton')
+          .addEventListener('click', () => {
+            window.location.href = `${baseUrl}/subscribers/names`
+          })
+
+        // Get Subscriber by ID Button
+        document
+          .getElementById('subscriberByIdButton')
+          .addEventListener('click', () => {
+            const id = document.getElementById('subscriberIdInput').value
+            if (!id) {
+              alert('Please enter a Subscriber ID.')
+            } else {
+              window.location.href = `${baseUrl}/subscribers/${id}`
+            }
+          })
+
+        // Copy Demo ID to Clipboard
+        document
+          .getElementById('copyDemoIdButton')
+          .addEventListener('click', () => {
+            const demoId = document.getElementById('demoId')
+            navigator.clipboard.writeText(demoId.value).then(() => {
+              alert('Demo ID copied to clipboard!')
+            })
+          })
+
+        // Open API Docs Button
+        document
+          .getElementById('apiDocsButton')
+          .addEventListener('click', () => {
+            window.location.href = `${baseUrl}/api-docs`
+          })
+      })
+    </script>
+  </body>
+</html>

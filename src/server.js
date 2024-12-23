@@ -1,11 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const app = require('./app')
 const mongoose = require('mongoose')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsdoc = require('swagger-jsdoc')
 const path = require('path')
-const dotenv = require('dotenv')
-dotenv.config()
 
 const DATABASE_URL = process.env.DATABASE_URL
 const PORT = process.env.PORT || 3000

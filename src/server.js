@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsdoc = require('swagger-jsdoc')
 
-const DATABASE_URL = 'mongodb://localhost/subscribers'
-const PORT = 3000
+const DATABASE_URL = process.env.DATABASE_URL
+const PORT = process.env.PORT || 3000
 
 // Swagger options
 const swaggerOptions = {

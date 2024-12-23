@@ -31,6 +31,7 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions)
 // Connect to MongoDB
 mongoose.connect(DATABASE_URL)
 const db = mongoose.connection
+
 db.on('error', (err) => console.log('Database connection error:', err))
 db.once('open', () => console.log('Connected to the database'))
 

@@ -21,7 +21,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}`,
+        url: `https://get-youtube-subscribers-ij6z.onrender.com`,
       },
     ],
   },

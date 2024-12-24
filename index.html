@@ -52,6 +52,9 @@
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        white-space: nowrap; /* Ensure the text stays in one line */
+        overflow: hidden; /* Prevent overflow */
+        text-overflow: ellipsis; /* Add ellipsis for overflow */
       }
 
       .icon-links img {
@@ -78,6 +81,14 @@
         background: none;
         font-size: 16px;
         outline: none;
+        max-width: 100%; /* Ensure it does not overflow the container */
+      }
+
+      /* Make demo ID input field larger */
+      .clipboard-container input#demoId {
+        width: 100%;
+        max-width: 400px; /* Set max-width to control the size */
+        text-overflow: ellipsis;
       }
     </style>
   </head>
@@ -103,7 +114,7 @@
         <input
           type="text"
           id="demoId"
-          value="676926db06ff3c1ca4af021d"
+          value="676a943fe910c794fe72f68e"
           readonly
         />
         <button id="copyDemoIdButton">Copy</button>
@@ -114,19 +125,19 @@
           href="mailto:vikasdhyani72@gmail.com?subject=Hello Vikas&body=I wanted to reach out to you regarding..."
           target="_blank"
         >
-          <img src="./Images/email.png" alt="Mail Icon" />
+          <img src="/public/Images/email.png" alt="Mail Icon" />
         </a>
         <a
           href="https://github.com/vikasdhyani72/get-youtube-subscribers"
           target="_blank"
         >
-          <img src="./Images/Github.png" alt="GitHub Logo" />
+          <img src="/public/Images/Github.png" alt="GitHub Logo" />
         </a>
         <a
           href="https://www.linkedin.com/in/vikas-dhyani-433337246/"
           target="_blank"
         >
-          <img src="./Images/Linkedin.png" alt="LinkedIn Logo" />
+          <img src="/public/Images/Linkedin.png" alt="LinkedIn Logo" />
         </a>
       </div>
 

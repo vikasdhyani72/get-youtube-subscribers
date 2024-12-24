@@ -15,7 +15,7 @@ app.use('/subscribers', subscriberRoutes)
 
 // Serve index.html for the home route
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'))
+  res.sendFile(path.join(__dirname, '..index.html'))
 })
 
 module.exports = app

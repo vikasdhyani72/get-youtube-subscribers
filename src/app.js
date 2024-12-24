@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // Serve static files
-app.use(express.static(path.join(__dirname)))
+app.use(express.static(path.join(__dirname, '/')))
 
 // API routes
 app.use('/subscribers', subscriberRoutes)

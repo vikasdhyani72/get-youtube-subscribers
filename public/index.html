@@ -24,7 +24,6 @@
         padding: 20px;
         width: 90%;
         max-width: 500px;
-        overflow: hidden;
       }
 
       h1 {
@@ -74,16 +73,11 @@
 
       .clipboard-container input {
         text-align: center;
-        width: 100%;
+        width: auto;
         border: none;
         background: none;
         font-size: 16px;
         outline: none;
-      }
-
-      /* Ensure Demo ID input is fully visible */
-      #demoId {
-        width: 100%;
       }
     </style>
   </head>
@@ -119,14 +113,11 @@
         <a href="mailto:yourmail@example.com" target="_blank">
           <img src="./Images/email.png" alt="Mail Icon" />
         </a>
-        <a
-          href="https://github.com/vikasdhyani72/get-youtube-subscribers"
-          target="_blank"
-        >
+        <a href="https://github.com/pp35/YouTube-subscribers" target="_blank">
           <img src="./Images/Github.png" alt="GitHub Logo" />
         </a>
         <a
-          href="https://www.linkedin.com/in/vikas-dhyani-433337246/"
+          href="https://www.linkedin.com/in/poornima-pandey-15305226a/"
           target="_blank"
         >
           <img src="./Images/Linkedin.png" alt="LinkedIn Logo" />
@@ -139,23 +130,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const baseUrl = 'https://get-youtube-subscribers-oi5s.onrender.com'
+        const baseUrl = 'http://localhost:3000'
 
-        // All Subscribers Button
         document
           .getElementById('allSubscribersButton')
           .addEventListener('click', () => {
             window.location.href = `${baseUrl}/subscribers`
           })
 
-        // Subscriber Names Button
         document
           .getElementById('subscriberNamesButton')
           .addEventListener('click', () => {
             window.location.href = `${baseUrl}/subscribers/names`
           })
 
-        // Get Subscriber by ID Button
         document
           .getElementById('subscriberByIdButton')
           .addEventListener('click', () => {
@@ -167,7 +155,6 @@
             }
           })
 
-        // Copy Demo ID to Clipboard
         document
           .getElementById('copyDemoIdButton')
           .addEventListener('click', () => {
@@ -177,7 +164,6 @@
             })
           })
 
-        // Open API Docs Button
         document
           .getElementById('apiDocsButton')
           .addEventListener('click', () => {

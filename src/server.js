@@ -1,7 +1,8 @@
-require('dotenv').config()
+require('dotenv').config({ path: './.env' })
+
 const express = require('express')
-const app = require('./app')
 const mongoose = require('mongoose')
+const app = require('./app')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsdoc = require('swagger-jsdoc')
 const path = require('path')
@@ -9,7 +10,7 @@ const path = require('path')
 const DATABASE_URL = process.env.DATABASE_URL
 const PORT = process.env.PORT || 3000
 
-// Swagger options
+// Swagger setup
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -27,21 +28,15 @@ const swaggerOptions = {
   apis: ['./src/routes/subscribers.js'],
 }
 
-// Initialize Swagger docs
 const swaggerDocs = swaggerJsdoc(swaggerOptions)
 
 // Connect to MongoDB
-mongoose.connect(DATABASE_URL),
-  { useNewUrlParser: true, useUnifiedTopology: true }
-const db = mongoose.connection
+mongoose
+  .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connected to the database'))
+  .catch((err) => console.log('Database connection error:', err))
 
-db.on('error', (err) => console.log('Database connection error:', err))
-db.once('open', () => console.log('Connected to the database'))
-
-// Serve static files from 'public' directory
-app.use(express.static(path.join(__dirname, '..', 'public')))
-
-// Use Swagger UI for /api-docs route
+// Use Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 // Start the server

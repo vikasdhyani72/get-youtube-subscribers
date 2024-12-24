@@ -2,7 +2,7 @@ require('dotenv').config({ path: './.env' })
 
 const express = require('express')
 const mongoose = require('mongoose')
-const app = require('./app')
+const app = require('./app') // Import app.js, where the app is configured
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsdoc = require('swagger-jsdoc')
 const path = require('path')
@@ -33,13 +33,23 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions)
 // Connect to MongoDB
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to the database'))
-  .catch((err) => console.log('Database connection error:', err))
+  .then(() => {
+    console.log('Connected to the MongoDB database')
+  })
+  .catch((err) => {
+    console.log('Database connection error:', err)
+    process.exit(1) // Exit the process if database connection fails
+  })
 
-// Use Swagger UI
+// Use Swagger UI for API docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-// Start the server
-app.listen(PORT, () =>
-  console.log(`App is running on http://localhost:${PORT}`)
-)
+// Start the server and handle potential errors
+app
+  .listen(PORT, () => {
+    console.log(`App is running on http://localhost:${PORT}`)
+  })
+  .on('error', (err) => {
+    console.error('Error occurred while starting the server:', err)
+    process.exit(1) // Exit if server fails to start
+  })

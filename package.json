@@ -2,7 +2,7 @@
   "name": "node-server-testing",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "test": "mocha '__tests__/*.js' --reporter mochawesome --recursive  --timeout 60000 --exit",
     "start": "node src/server.js"

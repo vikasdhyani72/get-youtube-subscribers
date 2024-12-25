@@ -44,12 +44,4 @@ mongoose
 // Use Swagger UI for API docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-// Start the server and handle potential errors
-app
-  .listen(PORT, () => {
-    console.log(`App is running on http://localhost:${PORT}`)
-  })
-  .on('error', (err) => {
-    console.error('Error occurred while starting the server:', err)
-    process.exit(1) // Exit if server fails to start
-  })
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

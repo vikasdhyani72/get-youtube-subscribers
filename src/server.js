@@ -32,7 +32,7 @@ const swaggerDocs = swaggerJsdoc(swaggerOptions)
 
 // Connect to MongoDB
 mongoose
-  .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(DATABASE_URL)
   .then(() => {
     console.log('Connected to the MongoDB database')
   })

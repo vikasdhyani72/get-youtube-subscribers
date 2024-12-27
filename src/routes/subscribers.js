@@ -67,7 +67,9 @@ router.get('/', async (req, res) => {
  */
 router.get('/names', async (req, res) => {
   try {
-    const subscribers = await Subscriber.find({}, 'name subscribedChannel')
+    const subscribers = await Subscriber.find().select(
+      'name subscribedChannel -_id'
+    )
     res.json(subscribers)
   } catch (err) {
     res.status(500).json({ message: err.message })

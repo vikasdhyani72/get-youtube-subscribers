@@ -230,7 +230,7 @@ router.get('/:id', async (req, res) => {
 /**
  * @swagger
  * /subscribers/{id}:
- *   put:
+ *   post:
  *     description: Update subscriber by ID
  *     parameters:
  *       - in: path
@@ -265,7 +265,7 @@ router.get('/:id', async (req, res) => {
  *       500:
  *         description: Server error
  */
-router.put('/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
   const { name, subscribedChannel, subscribedDate } = req.body
 
   if (!name || !subscribedChannel || !subscribedDate) {

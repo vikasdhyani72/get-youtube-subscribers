@@ -81,7 +81,7 @@ describe('Subscribers API', function () {
   // Test for GET /subscribers/:id (fetch a subscriber by ID)
   it('should fetch a subscriber by ID', async function () {
     const subscriber = await Subscriber.findOne()
-    const res = await request(app).get(`/subscribers/${subscriber._id}`)
+    const res = await request(app).get(`/subscribers/${subscriber._id}`) // Corrected with backticks
     expect(res.status).to.equal(200)
     expect(res.body).to.have.property('name')
     expect(res.body).to.have.property('subscribedChannel')
@@ -90,12 +90,12 @@ describe('Subscribers API', function () {
   // Test for GET /subscribers/:id (should return 404 for non-existing ID)
   it('should return 404 for non-existing subscriber ID', async function () {
     const nonExistingId = new mongoose.Types.ObjectId()
-    const res = await request(app).get(`/subscribers/${nonExistingId}`)
+    const res = await request(app).get(`/subscribers/${nonExistingId}`) // Corrected with backticks
     expect(res.status).to.equal(404)
     expect(res.body).to.have.property('message', 'Subscriber not found')
   })
 
-  // Test for PUT /subscribers/:id (update a subscriber)
+  // Test for POST /subscribers/:id (update a subscriber)
   it('should update a subscriber by ID', async function () {
     const subscriber = await Subscriber.findOne()
     const updatedData = {
@@ -105,7 +105,7 @@ describe('Subscribers API', function () {
     }
 
     const res = await request(app)
-      .put(`/subscribers/${subscriber._id}`)
+      .post(`/subscribers/${subscriber._id}`) // Corrected with backticks
       .send(updatedData)
 
     expect(res.status).to.equal(200)
@@ -113,7 +113,7 @@ describe('Subscribers API', function () {
     expect(res.body).to.have.property('subscribedChannel', 'Updated Channel')
   })
 
-  // Test for PUT /subscribers/:id (should return 404 for non-existing ID)
+  // Test for POST /subscribers/:id (should return 404 for non-existing ID)
   it('should return 404 when updating non-existing subscriber', async function () {
     const nonExistingId = new mongoose.Types.ObjectId()
     const updatedData = {
@@ -123,7 +123,7 @@ describe('Subscribers API', function () {
     }
 
     const res = await request(app)
-      .put(`/subscribers/${nonExistingId}`)
+      .post(`/subscribers/${nonExistingId}`) // Corrected with backticks
       .send(updatedData)
 
     expect(res.status).to.equal(404)

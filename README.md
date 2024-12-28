@@ -70,3 +70,21 @@ The project uses a MongoDB database to store subscriber data. You can configure 
 ### Data Refresh
 
 The project includes a data refresh feature. The `refreshAll` function in app.js clears the database and inserts a sample dataset of subscribers from the data.js file. You can use this function to reset the database with sample data.
+
+### project structure
+
+├── images/
+├── index.html
+├── src/
+│ ├── models/ # Mongoose models (Subscriber schema)
+│ ├── routes/ # Route handlers for API endpoints
+│ ├── utils/ # Utility scripts (e.g., error handling)
+│ ├── app.js # Main application logic
+│ ├── server.js # Entry point for starting the server
+│ └── data.js # Mock data for seeding
+├── test/ # Test files for API testing
+├── .gitignore # Git ignored files/folders
+├── package.json # Dependencies and scripts
+├── README.md # Documentation
+├── mochawesome-report/ # Test result reports
+└── node_modules/

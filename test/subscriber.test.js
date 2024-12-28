@@ -95,7 +95,7 @@ describe('Subscribers API', function () {
     expect(res.body).to.have.property('message', 'Subscriber not found')
   })
 
-  // Test for POST /subscribers/:id (update a subscriber)
+  // Test for PUT /subscribers/:id (update a subscriber)
   it('should update a subscriber by ID', async function () {
     const subscriber = await Subscriber.findOne()
     const updatedData = {
@@ -105,7 +105,7 @@ describe('Subscribers API', function () {
     }
 
     const res = await request(app)
-      .post(`/subscribers/${subscriber._id}`)
+      .put(`/subscribers/${subscriber._id}`)
       .send(updatedData)
 
     expect(res.status).to.equal(200)
@@ -113,7 +113,7 @@ describe('Subscribers API', function () {
     expect(res.body).to.have.property('subscribedChannel', 'Updated Channel')
   })
 
-  // Test for POST /subscribers/:id (should return 404 for non-existing ID)
+  // Test for PUT /subscribers/:id (should return 404 for non-existing ID)
   it('should return 404 when updating non-existing subscriber', async function () {
     const nonExistingId = new mongoose.Types.ObjectId()
     const updatedData = {
@@ -123,7 +123,7 @@ describe('Subscribers API', function () {
     }
 
     const res = await request(app)
-      .post(`/subscribers/${nonExistingId}`)
+      .put(`/subscribers/${nonExistingId}`)
       .send(updatedData)
 
     expect(res.status).to.equal(404)

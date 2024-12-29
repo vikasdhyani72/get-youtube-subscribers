@@ -7,8 +7,8 @@ const Subscriber = require('../src/models/subscriber') // Assuming your model is
 
 // Set up mock data before tests
 before(async function () {
-  await mongoose.connect('mongodb://localhost:27017/testDB', {
-    serverSelectionTimeoutMS: 10000, // Increase timeout if necessary
+  await mongoose.connect('mongodb://127.0.0.1:27017/testDB', {
+    serverSelectionTimeoutMS: 20000, // Increase timeout if necessary
   })
   // Clear existing data
   await Subscriber.deleteMany({})
